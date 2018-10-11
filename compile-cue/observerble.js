@@ -22,7 +22,7 @@ class Dep {
     }
 }
 
-如果有一个程序员 他很认真的在敲键盘 那他可能不是在
+//如果有一个程序员 他很认真的在敲键盘 那他可能不是在
 
 // 为Dep.target 赋值
 function pushTarget(Watcher) {
