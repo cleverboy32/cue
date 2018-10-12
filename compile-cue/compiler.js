@@ -1,4 +1,5 @@
-import template from './template.js';
+import { stack as template, options } from './template.js';
+import Watcher from './observerble.js'
 
 // let content;
 
@@ -11,6 +12,23 @@ for (let attr of root.attrs) {
 rootEle.innerText = root.text;
 
 
+let data = options.data();
+
+// 数据监听
+console.log(Watcher);
+
+
+
+
+
+
+
+
+
+
+
+
+
 function genarateDom (root, rootEle) {
     let nodes = root.children; // 根元素下的子元素
     nodes.map((item) => {
@@ -18,12 +36,17 @@ function genarateDom (root, rootEle) {
         for (let attr of item.attrs) {
             let event = attr.name.match(/^@(.*)/);
             if (event) { //是事件
-                
-                console.log(event);
+                ele.addEventListener(event[1], options.methods[attr.value]);
             } else {
                 ele.setAttribute(attr.name, attr.value);
             }
         }
+
+        // 替换变量
+        item.text = item.text.replace(/{{(.*)}}/g, ($1, $2) => {
+            return ' ' + data[$2];
+        })
+
         ele.innerText = item.text;
 
         if (item.children) {
@@ -36,7 +59,6 @@ function genarateDom (root, rootEle) {
   
 genarateDom(root, rootEle);
 
-let content = template.template;
 let wrap = document.querySelector('#app');
 wrap.innerHTML = '';
 wrap.append(rootEle);

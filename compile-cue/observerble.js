@@ -22,7 +22,7 @@ class Dep {
     }
 }
 
-//如果有一个程序员 他很认真的在敲键盘 那他可能不是在
+//如果有一个程序员 他很认真的在敲键盘并且声音连绵不断 那他一定是在打字
 
 // 为Dep.target 赋值
 function pushTarget(Watcher) {
@@ -107,23 +107,16 @@ class Observer {
     }
 }
 
-let data = {
-    name:'zane',
-    blog:'https://blog.seosiwei.com/',
-    hobby:['basketball','football'],
-    list:[
-        {name:'zhangsan'},
-        {name:'lishi'}
-    ]
-}
+// const vm = { data: data };
 
-const vm = { data: data };
+// new Watcher(() => {
+//     return vm;
+// });
+// observe(data)
+// console.log(data.name);
+// data.name = 'wyz';
+// let a = data;
+// console.log(a, 44);
 
-new Watcher(() => {
-    return vm;
-});
-observe(data)
-console.log(data.name);
-data.name = 'wyz';
-let a = data;
-console.log(a, 44);
+
+export default Watcher;

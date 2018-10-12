@@ -1,12 +1,6 @@
-import template from './cue-template.js';
+import {Cue as template, cm as options} from './cue-template.js';
 
-
-
-let  scriptStart = template.content.match('<script>').index;
-let scriptEnd = template.content.match('</script>').index;
-
-let script = template.content.slice(scriptStart, scriptEnd);
-let html = template.content.slice(0, scriptStart);
+let html = template.content;
 
 // Regular Expressions for parsing tags and attributes
 const attribute = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/;
@@ -121,7 +115,7 @@ while (html) {
     
 }
 
-console.log(stack, script);
-
-
-export default stack;
+export {
+    stack,
+    options
+}

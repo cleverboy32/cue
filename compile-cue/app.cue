@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>hello {name}!</p>
+        <p>hello {{name}}!</p>
         <button @click="change">改变视图</button>
     </div>
 </template>
