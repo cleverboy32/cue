@@ -4,12 +4,15 @@
   "description": "",
   "main": "compiler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "load:cue": "node compile-cue/cue-loader",
+    "start": "npm run load:cue && parcel index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "json-templater": "^1.2.0",
     "parcel-bundler": "^1.10.2"
   }
 }

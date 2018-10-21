@@ -106,6 +106,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var template = {
     template: "<div>hello clever!</div>"
+
 };
 
 exports.default = template;
